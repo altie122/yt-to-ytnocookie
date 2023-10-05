@@ -1,0 +1,25 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+import { ViewTransitions } from 'astro:transitions';
+---
+
+<!doctype html>
+<html lang="en" class="bg-cyan-900 text-center">
+	<head>
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Youtube to youtube nocookie</title>
+		<script src="../scripts/script.js"></script>
+		<link href="/favicon.svg" rel="icon" type="image/x-icon">
+		<ViewTransitions />
+	</head>
+	<body class="m-5">
+		<slot />
+	</body>
+</html>
