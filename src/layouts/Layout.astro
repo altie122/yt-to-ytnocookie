@@ -1,6 +1,5 @@
 ---
 interface Props {
-	title: string;
 }
 
 import { ViewTransitions } from 'astro:transitions';
@@ -26,8 +25,7 @@ import { ViewTransitions } from 'astro:transitions';
 // 	cookie_jar_show = true
 // }
 
-// pass title through as an astro prop
-const { title } = Astro.props;
+// const { cookie_jar_show, jar } = Astro.props;
 ---
 
 <!doctype html>
@@ -50,6 +48,8 @@ const { title } = Astro.props;
 </html>
 <!-- <script>
 	const cookie_jar: HTMLElement = document.getElementById('cookie_jar')!;
-	if (cookie_jar_show == true) {}
-	cookie_jar.className = 'visible bottom-0 sticky bg-slate-500';
+	const cookie_jar_show = this.dataset.cookie_jar_show
+	if (cookie_jar_show == true) {
+		cookie_jar.className = 'visible bottom-0 sticky bg-slate-500'
+	}
 </script> -->
