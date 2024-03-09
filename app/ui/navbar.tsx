@@ -8,7 +8,7 @@ export function Header(){
         <a className="btn btn-ghost text-xl" href="/">YT To YT No Cookie</a>
       </div>
       <div className="flex-none gap-2">
-        <Convert_bar />
+        <Convert_bar id="navbar-top"/>
       </div>
     </div>
   );

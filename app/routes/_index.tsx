@@ -12,7 +12,7 @@ export default function Index() {
   return (
     <div className="container mx-auto">
       <h1>Please enter the youtube link below or in the navbar.</h1>
-      <Convert_bar/>
+      <Convert_bar id="home-page"/>
       <br />
       <h2>Allowed links:</h2>
       <ul>

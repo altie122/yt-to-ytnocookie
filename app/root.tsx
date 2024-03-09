@@ -14,13 +14,29 @@ import stylesheet from "~/tailwind.css";
 import { canUseDOM } from "./ui/primitives/utils";
 import { Header } from "./ui/navbar";
 import { Footer } from "./ui/footer";
+import { useEffect } from "react";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: stylesheet },
+  { rel:"manifest", href:"/manifest.webmanifest" },
+  { rel:"sitemap", href:"/sitemap-index.xml" }, // Generate the sitemap with https://www.xml-sitemaps.com then update sitemap.xml NOT sitemap-index.xml
 ];
 
 export default function App() {
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('Service Worker registered:', registration);
+          })
+          .catch(error => {
+            console.error('Service Worker registration failed:', error);
+          });
+      });
+    }
+  }, []);
   return (
     <html lang="en" className=" bg-slate-900 min-h-screen text-slate-400">
       <head>

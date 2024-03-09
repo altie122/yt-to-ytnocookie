@@ -2,13 +2,30 @@ import { siGithub } from 'simple-icons';
 
 export function Footer(){
   return(
-    <footer className="footer items-center p-4 bg-slate-800 text-slate-400">
-      <aside className="items-center grid-flow-col">
-        <p>Copyright © 2024 - Altie122 - <a href="/license" className=" text-red-500 no-underline hover:underline">This site is OSS under the MIT license</a></p>
-      </aside> 
-      <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-        <a href="https://github.com/altie122/yt-to-ytnocookie"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" className=' fill-slate-400'><path d={siGithub.path} /></svg></a>
-      </nav>
-    </footer>
+    <div>
+      <footer className="footer p-10 bg-slate-800 text-slate-400">
+        <nav>
+          <h6 className="footer-title">Site</h6> 
+          <a className="link link-hover" href="/license">This site is OSS under the MIT license</a>
+          <a className="link link-hover" href="/pwa">PWA Instructions</a>
+        </nav>
+        {/* <nav>
+          <h6 className="footer-title">Legal</h6> 
+          <a className="link link-hover">Terms of use</a>
+          <a className="link link-hover">Privacy policy</a>
+          <a className="link link-hover">Cookie policy</a>
+        </nav> TODO*/}
+      </footer> 
+      <footer className="footer px-10 py-4 border-t bg-slate-800 text-slate-400 border-slate-400">
+        <aside className="items-center grid-flow-col">
+          <p>Copyright © 2024<br/>Altie122</p>
+        </aside> 
+        <nav className="md:place-self-center md:justify-self-end">
+          <div className="grid grid-flow-col gap-4">
+            <a href="https://github.com/altie122/yt-to-ytnocookie"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" className=' fill-current'><path d={siGithub.path} /></svg></a>
+          </div>
+        </nav>
+      </footer>
+    </div>
   );
 }
