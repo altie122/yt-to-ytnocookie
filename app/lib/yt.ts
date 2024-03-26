@@ -39,3 +39,17 @@ export function GetID(URL:string) {
     return(new_URL);
   }
 }
+
+export function GetNoCookie(ID:string) {
+  return("https://www.youtube-nocookie.com/embed/" + ID)
+}
+
+export function Full(URL:string) {
+  const isYT = IsYT(URL)
+  if (isYT == true) {
+    const id = String(GetID(URL))
+    return(GetNoCookie(id))
+  } else {
+    return(400)
+  }
+}

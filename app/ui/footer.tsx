@@ -7,6 +7,7 @@ export function Footer(){
         <nav>
           <h6 className="footer-title">Site</h6> 
           <a className="link link-hover" href="/license">This site is OSS under the MIT license</a>
+          <a className="link link-hover" href="/api">API</a>
         </nav>
         {/* <nav>
           <h6 className="footer-title">Legal</h6> 

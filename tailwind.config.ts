@@ -12,6 +12,6 @@ export default {
       roman: 'upper-roman',
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"),require('@tailwindcss/typography'),],
 } satisfies Config
 
