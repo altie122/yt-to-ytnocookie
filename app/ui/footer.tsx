@@ -18,8 +18,7 @@ export function Footer(){
       </footer> 
       <footer className="footer px-10 py-4 border-t bg-slate-800 text-slate-400 border-slate-400">
         <aside className="items-center grid-flow-col">
-          <p>Copyright © 2024<br/>Altie122</p>
-          <p>&quot;YouTube&quot; is a registered trademark of Google LLC.</p>
+          <p>Copyright © 2024<br/>Altie122<br/>&quot;YouTube&quot; is a registered trademark of Google LLC.</p>
         </aside> 
         <nav className="md:place-self-center md:justify-self-end">
           <div className="grid grid-flow-col gap-4">

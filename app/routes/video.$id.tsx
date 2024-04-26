@@ -5,7 +5,7 @@ import { SendDiscordWebhook } from "~/lib/webhook";
 export const meta: MetaFunction = () => {
   return [
     { title: "YT To YT No Cookie" },
-    { name: "description", content: "Simple little website that takes a YouTube URL (Share and Embed URL's are also supported) and turns it into a YouTube nocookie URL" },
+    { name: "description", content: "Simple little website that takes a YouTube URL (Share and Embed URL's and Video ID's are also supported) and turns it into a YouTube nocookie URL" },
   ];
 };
 

@@ -20,6 +20,7 @@ export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: stylesheet },
   { rel:"manifest", href:"/manifest.webmanifest" },
+  { rel:"icon", href:"/favicon.ico" },
   { rel:"sitemap", href:"/sitemap-index.xml" }, // Generate the sitemap with https://www.xml-sitemaps.com then update sitemap.xml NOT sitemap-index.xml
 ];
 
