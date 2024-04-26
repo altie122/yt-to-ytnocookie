@@ -1,42 +1,88 @@
+const youtubeVideoIdCharacters: string[] = [
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+  'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+  'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
+  'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+  'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+  'y', 'z'
+];
+
+
 export function IsYT(URL:string) {
-  const input_URL = URL;
-  if (input_URL.includes("https://www.youtube.com/watch?v=")) {
-    return(true)
-  } else if (input_URL.includes("https://youtu.be/")) {
-    return(true)
-  } else if (input_URL.includes("https://www.youtube.com/embed/")) {
-    return(true)
+  const input_URL: string = URL;
+  let temp_input_URL: string = input_URL.replace(
+    "https://",
+    "",
+  );
+  temp_input_URL = temp_input_URL.replace(
+    "http://",
+    "",
+  );
+  temp_input_URL = temp_input_URL.replace(
+    "www.",
+    "",
+  );
+  if (temp_input_URL.includes("youtube.com/watch?v=")) {
+    return true;
+  } else if (temp_input_URL.includes("youtu.be/")) {
+    return true;
+  } else if (temp_input_URL.includes("youtube.com/embed/")) {
+    return true;
+  } else if (temp_input_URL.length == 11) {
+    for (let i = 0; i < temp_input_URL.length; i++) {
+      const currentChar = temp_input_URL[i];
+      if (!youtubeVideoIdCharacters.includes(currentChar)) {
+        return false;
+      }
+    }
+    return true;
   } else {
-    return(false)
+    return false;
   }
 }
 
 export function GetID(URL:string) {
-  const input_URL = URL;
-  if (input_URL.includes("https://www.youtube.com/watch?v=")) {
-    const part_new_text = input_URL.replace(
-      "https://www.youtube.com/watch?v=",
+  const input_URL: string = URL;
+  let temp_input_URL: string = input_URL.replace(
+    "https://",
+    "",
+  );
+  temp_input_URL = temp_input_URL.replace(
+    "http://",
+    "",
+  );
+  temp_input_URL = temp_input_URL.replace(
+    "www.",
+    "",
+  );
+
+  if (temp_input_URL.includes("youtube.com/watch?v=")) {
+    const part_new_text = temp_input_URL.replace(
+      "youtube.com/watch?v=",
       "",
     );
     const new_text_buffer = part_new_text.split("&");
-    const new_URL = new_text_buffer[0];
+    const new_URL: string = new_text_buffer[0];
     return(new_URL);
-  } else if (input_URL.includes("https://youtu.be/") && input_URL.includes("?si=")) {
-    const part_new_text = input_URL.replace(
-      "https://youtu.be/",
+  } else if (temp_input_URL.includes("youtu.be/")) {
+    const part_new_text: string = temp_input_URL.replace(
+      "youtu.be/",
       "",
     );
     const new_text_buffer = part_new_text.split("?");
-    const new_URL = new_text_buffer[0];
+    const new_URL: string = new_text_buffer[0];
     return(new_URL);
-  } else if (input_URL.includes("https://www.youtube.com/embed/") && input_URL.includes("?si=")) {
-    const part_new_text = input_URL.replace(
-      "https://www.youtube.com/embed/",
+  } else if (temp_input_URL.includes("youtube.com/embed/")) {
+    const part_new_text = temp_input_URL.replace(
+      "youtube.com/embed/",
       "",
     );
     const new_text_buffer = part_new_text.split("?");
-    const new_URL = new_text_buffer[0];
+    const new_URL: string = new_text_buffer[0];
     return(new_URL);
+  } else if (temp_input_URL.length == 11) {
+    return(temp_input_URL)
   }
 }
 

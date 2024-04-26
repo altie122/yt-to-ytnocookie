@@ -14,7 +14,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const id = params.id; // Retrieve the id parameter correctly
 
   if (userAgent !== 'Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com/)') {
-    const formattedMsg = `Converted Video:\nhttps://yt-to-ytnocookie.dovahkiin.xyz/${id}\n\nUserAgent:\n${userAgent}\n\nVideo Converted:\nhttps://www.youtube.com/watch?v=${id}`;
+    const formattedMsg = `Converted Video:\nhttps://yt-to-ytnocookie.dovahkiin.xyz/${id}\n\nUserAgent:\n${userAgent}\n\nVideo Converted:\nhttps://www.youtube.com/watch?v=${id}\n\nOutput:\nhttps://www.youtube-nocookie.com/embed/${id}`;
     SendDiscordWebhook(formattedMsg);
   }
   return null;
@@ -29,7 +29,7 @@ export default function Index() {
     <div className="container mx-auto">
       <h2 className="text-2xl no-underline hover:underline">{URL}</h2>
       <h1 className="text-lg">Embed:</h1>
-      <iframe className="w-1/2 aspect-video mx-auto rounded-2xl" title="example" src={URL}></iframe>
+      <iframe className="w-1/2 aspect-video mx-auto rounded-2xl" title="example" src={URL} allowFullScreen ></iframe>
       <br />
       <h1 className="text-lg">Embed example code:</h1>
       
