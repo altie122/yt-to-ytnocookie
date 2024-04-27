@@ -5,7 +5,7 @@ import { SendDiscordWebhook } from "~/lib/webhook";
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const userAgent = request.headers.get('User-Agent') || 'Unknown';
-  if (!userAgent.includes('https://discordapp.com/')) {
+  if (!userAgent.includes('Discordbot')) {
     const formated_msg = "404 page reached:\nhttps://yt-to-ytnocookie.dovahkiin.xyz/" + String(params["*"]) + "\n\nUserAgent:\n" + userAgent;
     SendDiscordWebhook(formated_msg);
   }
