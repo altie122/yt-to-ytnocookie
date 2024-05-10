@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /static/admin/
-
-Sitemap: https://yt-to-ytnocookie.dovahkiin.xyz/sitemap-index.xml

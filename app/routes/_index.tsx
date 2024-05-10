@@ -1,31 +1,40 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Convert_bar } from "~/ui/convert";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "YT To YT No Cookie" },
-    { name: "description", content: "Simple little website that takes a YouTube URL (Share and Embed URL's and Video ID's are also supported) and turns it into a YouTube nocookie URL" },
+    { title: "New Remix App" },
+    { name: "description", content: "Welcome to Remix!" },
   ];
 };
 
 export default function Index() {
   return (
-    <div className="container mx-auto">
-      <h1>Please enter the youtube link below or in the navbar.</h1>
-      <Convert_bar id="home-page"/>
-      <br />
-      <h2>Allowed links:</h2>
+    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+      <h1>Welcome to Remix</h1>
       <ul>
-        <li>Watch/Base Youtube:<br />https://www.youtube.com/watch?v=_____</li>
-        <li>Share:<br />https://youtu.be/_________?si=_____</li>
-        <li>Embed:<br />https://www.youtube.com/embed/_________?si=_____</li>
-      </ul>
-      <br />
-      <h2>Examples:</h2>
-      <ul>
-        <li>Watch/Base Youtube:<br />https://www.youtube.com/watch?v=87TdQAGmeOA</li>
-        <li>Share:<br />https://youtu.be/87TdQAGmeOA?si=VNHziLtQTP_2Nv2Z</li>
-        <li>Embed:<br />https://www.youtube.com/embed/87TdQAGmeOA?si=VNHziLtQTP_2Nv2Z</li>
+        <li>
+          <a
+            target="_blank"
+            href="https://remix.run/tutorials/blog"
+            rel="noreferrer"
+          >
+            15m Quickstart Blog Tutorial
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://remix.run/tutorials/jokes"
+            rel="noreferrer"
+          >
+            Deep Dive Jokes App Tutorial
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
+            Remix Docs
+          </a>
+        </li>
       </ul>
     </div>
   );
