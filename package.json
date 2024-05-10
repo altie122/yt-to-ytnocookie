@@ -16,10 +16,13 @@
     "@remix-run/react": "^2.9.1",
     "@remix-run/serve": "^2.9.1",
     "axios": "^1.6.8",
+    "emoji-regex": "^10.3.0",
     "isbot": "^4.4.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "simple-icons": "^11.13.0"
+    "satori": "^0.10.13",
+    "simple-icons": "^11.13.0",
+    "svg2img": "1.0.0-beta.2"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.1",
