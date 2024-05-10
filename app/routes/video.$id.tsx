@@ -23,8 +23,8 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
 export default function Index() {
   const {id} = useParams();
-  const URL = "https://www.youtube-nocookie.com/embed/" + id
-  const iframe_code = "<iframe src=\""+URL+"\"></iframe>"
+  const URL = "https://www.youtube-nocookie.com/embed/" + id;
+  const iframe_code = "<iframe src=\""+URL+"\"></iframe>";
   return (
     <div className="container mx-auto">
       <h2 className="text-2xl no-underline hover:underline">{URL}</h2>
