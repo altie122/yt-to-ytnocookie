@@ -1,6 +1,7 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { useParams } from "@remix-run/react";
 import { SendDiscordWebhook } from "~/lib/webhook.server";
+import { blockedUserAgents } from "~/lib/consts";
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,10 +13,11 @@ export const meta: MetaFunction = () => {
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const userAgent = request.headers.get('User-Agent') || 'Unknown';
   const id = params.id; // Retrieve the id parameter correctly
-
-  if (!userAgent.includes('Discordbot') && !userAgent.includes('Go-http-client/1.1')) {
+  console.log(userAgent)
+  if (!blockedUserAgents.includes(userAgent)) {
     const formattedMsg = `Converted Video:\nhttps://yt-to-ytnocookie.dovahkiin.xyz/video/${id}\n\nUserAgent:\n${userAgent}\n\nVideo Converted:\nhttps://www.youtube.com/watch?v=${id}\n\nOutput:\nhttps://www.youtube-nocookie.com/embed/${id}`;
     SendDiscordWebhook(formattedMsg);
+    console.log(userAgent)
   }
   return null;
 }

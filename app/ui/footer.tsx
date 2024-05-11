@@ -3,7 +3,7 @@ import { siGithub } from 'simple-icons';
 export function Footer(){
   return(
     <div>
-      <footer className="footer p-10 bg-slate-800 text-slate-400">
+      <footer className="bg-secondary text-secondary-foreground p-10 bg-slate-800 text-slate-400">
         <nav>
           <h6 className="footer-title">Site</h6> 
           <a className="link link-hover" href="/license">This site is OSS under the MIT license</a>
@@ -16,7 +16,7 @@ export function Footer(){
           <a className="link link-hover">Cookie policy</a>
         </nav> TODO*/}
       </footer> 
-      <footer className="footer px-10 py-4 border-t bg-slate-800 text-slate-400 border-slate-400">
+      <footer className="bg-secondary text-secondary-foreground px-10 py-4 border-tborder-slate-400">
         <aside className="items-center grid-flow-col">
           <p>Copyright © 2024<br/>Altie122<br/>&quot;YouTube&quot; is a registered trademark of Google LLC.</p>
         </aside> 
