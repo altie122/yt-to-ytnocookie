@@ -1,0 +1,1 @@
+export { default as YTToYTNoCookie } from './component.astro';
