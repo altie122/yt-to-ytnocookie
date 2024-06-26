@@ -1,8 +1,5 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -10,14 +7,14 @@ import {
   isRouteErrorResponse,
   useRouteError,
 } from "@remix-run/react";
-import stylesheet from "~/tailwind.css";
+import type { LinksFunction } from "@remix-run/node";
+import stylesheet from "~/globals.css?url";
 import { canUseDOM } from "./ui/primitives/utils";
 import { Header } from "./ui/navbar";
 import { Footer } from "./ui/footer";
 import { useEffect } from "react";
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: stylesheet },
   { rel:"manifest", href:"/manifest.webmanifest" },
   { rel:"icon", href:"/favicon.ico" },
@@ -39,7 +36,7 @@ export default function App() {
     }
   }, []);
   return (
-    <html lang="en" className=" bg-slate-900 min-h-screen text-slate-400">
+    <html lang="en" className="dark bg-background min-h-screen text-foreground hyphens-auto max-w-screen">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -52,10 +49,9 @@ export default function App() {
           <Outlet />
           <ScrollRestoration />
           <Scripts />
-          <LiveReload />
         </div>
         <Footer />
-        {/* Cloudflare Web Analytics */}<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dcc9ffed7b4a43e195b8c6d47f1dba59"}'></script>{/* End Cloudflare Web Analytics */}
+        {/* Cloudflare Web Analytics script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dcc9ffed7b4a43e195b8c6d47f1dba59"}'></script>{/* End Cloudflare Web Analytics */} {/*This is commented out until the site goes into prod*/}
       </body>
     </html>
   );

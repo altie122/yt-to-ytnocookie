@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { IsYT, GetID } from "~/lib/yt";
+import { Input } from "~/components/ui/input"
 
 interface ConvertBarProps {
   id: string;
@@ -36,12 +37,12 @@ export function Convert_bar({ id }: ConvertBarProps) {
     });
   });
   return(
-    <div className="join">
+    <div>
       <div className="form-control">
-        <input type="text" placeholder="YT URL" className="input input-bordered w-24 md:w-auto join-item bg-slate-900 text-slate-400" id={textid}/>
+        <Input placeholder="URL/ID" className="" id={textid}/>
       </div>
       <div>
-        <button className="btn join-item rounded-r-full text-slate-800 bg-slate-400" id={btnid}>convert</button>
+        <button className="btn join-item rounded-r-full text-slate-800 bg-slate-400 hidden" id={btnid}>convert</button>
       </div>
     </div>
   )

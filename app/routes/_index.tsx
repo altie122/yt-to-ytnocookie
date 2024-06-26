@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Convert_bar } from "~/ui/convert";
+import { Convert_bar } from "~/ui/convert-page";
 
 export const meta: MetaFunction = () => {
   return [
