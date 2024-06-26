@@ -1,0 +1,23 @@
+---
+interface Props {
+  url: string,
+  classes?: string,
+  style?: string,
+  width?: string,
+  height?: string,
+  allowFullScreen?: boolean,
+  useYouTubeNoCookie?: boolean,
+}
+
+const { url, classes = "", style = "", width = "", height = "", allowFullScreen = false, useYouTubeNoCookie = false } = Astro.props;
+
+let video = url;
+
+if (useYouTubeNoCookie) {
+  const yt_to_yt_nocookie = await fetch(`https://yt-to-ytnocookie.xyz/api/yttoytnocookie?url=${url}`)
+  const data = await yt_to_yt_nocookie.json();
+  video = data.URL;
+}
+---
+
+<iframe src={video} class={classes} style={style} allowfullscreen={allowFullScreen} width={width} height={height}></iframe>
