@@ -24,7 +24,7 @@ export function Convert_bar({ id }: ConvertBarProps) {
           console.error("The given YouTube link is not valid!")
         }
         else{
-          window.location.href = "video/"+video_ID
+          window.location.href = "/video/"+video_ID
         }
       }
     });
