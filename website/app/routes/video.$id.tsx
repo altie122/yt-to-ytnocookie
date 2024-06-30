@@ -8,7 +8,6 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const { id } = params; // Retrieve the id parameter correctly
   const requestUrl = new URL(request.url);
   const siteUrl = requestUrl.protocol + "//" + requestUrl.host;
-  console.log(userAgent)
   if (!blockedUserAgents.includes(userAgent)) {
     const formattedMsg = `Converted Video:\n${siteUrl}/video/${id}\n\nUserAgent:\n${userAgent}\n\nVideo Converted:\nhttps://www.youtube.com/watch?v=${id}\n\nOutput:\nhttps://www.youtube-nocookie.com/embed/${id}`;
     SendDiscordWebhook(formattedMsg);
