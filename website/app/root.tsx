@@ -25,7 +25,7 @@ export const links: LinksFunction = () => [
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const requestUrl = new URL(request.url);
-  if (requestUrl.host === "dovahkiin.xyz") {
+  if (requestUrl.host === "yt-to-ytnocookie.dovahkiin.xyz") {
     return redirect(`https://yt-to-ytnocookie.xyz/${requestUrl.pathname}?odd=true`, 301);
   }
   return null;
