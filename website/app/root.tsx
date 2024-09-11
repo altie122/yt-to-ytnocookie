@@ -26,14 +26,17 @@ export const links: LinksFunction = () => [
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const requestUrl = new URL(request.url);
   if (requestUrl.host === "yt-to-ytnocookie.dovahkiin.xyz") {
-    return redirect(`https://yt-to-ytnocookie.xyz/${requestUrl.pathname}?odd=true`, 301);
+    return redirect(
+      `https://yt-to-ytnocookie.xyz/${requestUrl.pathname}?odd=true`,
+      301
+    );
   }
   return null;
-}
+};
 
 export default function App() {
   const location = useLocation();
-  const searchParams = location.search
+  const searchParams = location.search;
   let odd = false;
   if (searchParams.includes("odd=true")) {
     odd = true;
@@ -66,10 +69,11 @@ export default function App() {
       <body>
         <Header />
         {odd ? (
-          <div className="text-center bg-red-600">
-            <h1 className="text-4xl font-bold text-white">Warning!</h1>
+          <div className='text-center bg-red-600'>
+            <h1 className='text-4xl font-bold text-white'>Warning!</h1>
             <p>
-              We will be completely migrating to yt-to-ytnocookie.xyz on 9/12/2024.
+              We will be completely migrating to yt-to-ytnocookie.xyz on
+              9/12/2024.
             </p>
             <p>
               If you have yt-to-ytnocookie.dovahkiin.xyz bookmarked, please
@@ -93,6 +97,12 @@ export default function App() {
 }
 
 export function ErrorBoundary() {
+  const location = useLocation();
+  const searchParams = location.search;
+  let odd = false;
+  if (searchParams.includes("odd=true")) {
+    odd = true;
+  }
   const error = useRouteError();
   if (!canUseDOM) {
     console.error(error);
@@ -103,6 +113,21 @@ export function ErrorBoundary() {
       <div className='bg-slate-900 min-h-screen'>
         <Links />
         <div className='flex flex-1 flex-col justify-center text-white'>
+          {odd ? (
+            <div className='text-center bg-red-600'>
+              <h1 className='text-4xl font-bold text-white'>Warning!</h1>
+              <p>
+                We will be completely migrating to yt-to-ytnocookie.xyz on
+                9/12/2024.
+              </p>
+              <p>
+                If you have yt-to-ytnocookie.dovahkiin.xyz bookmarked, please
+                update it to yt-to-ytnocookie.xyz.
+              </p>
+            </div>
+          ) : (
+            <></>
+          )}
           <div className='text-center leading-none'>
             <h1 className='font-mono text-[25vw]'>{error.status}</h1>
             <a
@@ -120,6 +145,21 @@ export function ErrorBoundary() {
   return (
     <div className='bg-slate-900 min-h-screen'>
       <div className='flex flex-1 flex-col justify-center text-white'>
+        {odd ? (
+          <div className='text-center bg-red-600'>
+            <h1 className='text-4xl font-bold text-white'>Warning!</h1>
+            <p>
+              We will be completely migrating to yt-to-ytnocookie.xyz on
+              9/12/2024.
+            </p>
+            <p>
+              If you have yt-to-ytnocookie.dovahkiin.xyz bookmarked, please
+              update it to yt-to-ytnocookie.xyz.
+            </p>
+          </div>
+        ) : (
+          <></>
+        )}
         <div className='text-center leading-none'>
           <h1 className='text-[25vw]'>Error</h1>
           <div className='text-3xl'>
