@@ -16,6 +16,7 @@ import { Header } from "./ui/navbar";
 import { Footer } from "./ui/footer";
 import { useEffect } from "react";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/remix"
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -89,6 +90,7 @@ export default function App() {
           <ScrollRestoration />
           <Scripts />
           <Analytics />
+          <SpeedInsights />
         </div>
         <Footer />
       </body>
