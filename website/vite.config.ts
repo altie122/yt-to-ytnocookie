@@ -12,9 +12,10 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [
-    remix(),
+    remix({
+      presets: [vercelPreset()],
+    }),
     tsconfigPaths(),
-    arraybuffer(),
-    vercelPreset()
+    arraybuffer()
   ],
 });
