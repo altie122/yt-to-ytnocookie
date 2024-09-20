@@ -34,7 +34,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     headers: {
       "Content-Type": "image/png",
       // Cache for 1 year as these images don't change often
-      "Cache-Control": `max-age=${60 * 60 * 24 * 365}`,
+      "Cache-Control": `max-age=${60 * 60 * 24 * 365}, s-maxage=${60 * 60 * 24 * 365}, stale-while-revalidate=${60 * 60 * 24 * 365}`,
     },
   });
 }
