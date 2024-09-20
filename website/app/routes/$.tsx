@@ -10,7 +10,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const search = requestUrl.searchParams;
   const siteUrl = requestUrl.protocol + "//" + requestUrl.host;
   if (!blockedUserAgents.includes(userAgent)) {
-    const formated_msg = `404 page reached:\n${siteUrl}/` + String(params["*"]) + String(search) + "\n\nUserAgent:\n" + userAgent;
+    const formated_msg = `404 page reached:\n${siteUrl}/` + String(params["*"]) + "?" + String(search) + "\n\nUserAgent:\n" + userAgent;
     SendDiscordWebhook(formated_msg);
     console.log(userAgent)
   }
