@@ -1,7 +1,11 @@
-import type { LoaderFunctionArgs, MetaFunction } from "@vercel/remix";
+import type { HeadersFunction, LoaderFunctionArgs, MetaFunction } from "@vercel/remix";
 import { json, useParams } from "@remix-run/react";
 import { SendDiscordWebhook } from "~/lib/webhook.server";
 import { blockedUserAgents } from "~/lib/consts";
+
+export const headers: HeadersFunction = () => ({
+  "Cache-Control": "s-maxage=2592000, stale-while-revalidate=2592000",
+});
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const userAgent = request.headers.get('User-Agent') || 'Unknown';

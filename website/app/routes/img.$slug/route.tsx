@@ -1,13 +1,17 @@
-import { type LoaderFunctionArgs } from "@vercel/remix";
+import { type LoaderFunctionArgs, type HeadersFunction } from "@vercel/remix";
 import svg2img from "svg2img";
 import { createOgImageSVG } from "./utils.server";
+
+export const headers: HeadersFunction = () => ({
+  "Cache-Control": "s-maxage=2592000, stale-while-revalidate=2592000",
+});
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const svg = await createOgImageSVG(request);
 
   const { data, error } = await new Promise(
     (
-      resolve: (value: { data: Buffer | null; error: Error | null }) => void,
+      resolve: (value: { data: Buffer | null; error: Error | null }) => void
     ) => {
       svg2img(svg, (error, buffer) => {
         if (error) {
@@ -16,7 +20,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
           resolve({ data: buffer, error: null });
         }
       });
-    },
+    }
   );
   if (error) {
     return new Response(error.toString(), {
@@ -29,9 +33,8 @@ export async function loader({ request }: LoaderFunctionArgs) {
   return new Response(data, {
     headers: {
       "Content-Type": "image/png",
-      // starting with 1 day, may need to be longer as these images don't change often
-      // could also make it dependent on the date of the post
-      "Cache-Control": `max-age=${60 * 60 * 24}`,
+      // Cache for 1 year as these images don't change often
+      "Cache-Control": `max-age=${60 * 60 * 24 * 365}`,
     },
   });
 }

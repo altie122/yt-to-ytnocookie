@@ -15,6 +15,7 @@ import { canUseDOM } from "./ui/primitives/utils";
 import { Header } from "./ui/navbar";
 import { Footer } from "./ui/footer";
 import { useEffect } from "react";
+import { Analytics } from '@vercel/analytics/react';
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -87,10 +88,9 @@ export default function App() {
           <Outlet />
           <ScrollRestoration />
           <Scripts />
+          <Analytics />
         </div>
         <Footer />
-        {/* Cloudflare Web Analytics script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dcc9ffed7b4a43e195b8c6d47f1dba59"}'></script>{/* End Cloudflare Web Analytics */}{" "}
-        {/*This is commented out until the site goes into prod*/}
       </body>
     </html>
   );
