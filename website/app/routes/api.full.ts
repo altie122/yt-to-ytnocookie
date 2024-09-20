@@ -1,4 +1,4 @@
-import { LoaderFunctionArgs, json } from "@remix-run/node";
+import { type LoaderFunctionArgs, json } from "@vercel/remix";
 import { IsYT, GetID, GetNoCookie } from "~/lib/yt";
 
 export async function loader({

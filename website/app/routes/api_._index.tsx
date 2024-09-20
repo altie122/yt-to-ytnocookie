@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@vercel/remix";
 import ApiAccordion from "~/ui/api-accordion"
 
 export const meta: MetaFunction = () => {

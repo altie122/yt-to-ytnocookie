@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
-import { json } from "@remix-run/node";
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import { json } from "@vercel/remix";
+import type { LoaderFunctionArgs } from "@vercel/remix";
 import { blockedUserAgents } from "~/lib/consts";
 import { SendDiscordWebhook } from "~/lib/webhook.server";
 

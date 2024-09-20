@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "merp",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -13,10 +13,11 @@
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-separator": "^1.1.0",
-    "@remix-run/node": "^2.9.1",
-    "@remix-run/react": "^2.9.1",
-    "@remix-run/serve": "^2.9.1",
-    "axios": "^1.6.8",
+    "@remix-run/node": "2.12.0",
+    "@remix-run/react": "2.12.0",
+    "@remix-run/serve": "2.12.0",
+    "@vercel/remix": "^2.12.0",
+    "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "isbot": "^4.1.0",
@@ -31,7 +32,7 @@
     "vite-plugin-arraybuffer": "^0.0.7"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.9.1",
+    "@remix-run/dev": "2.12.0",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",

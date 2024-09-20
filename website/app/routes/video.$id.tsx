@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@vercel/remix";
 import { json, useParams } from "@remix-run/react";
 import { SendDiscordWebhook } from "~/lib/webhook.server";
 import { blockedUserAgents } from "~/lib/consts";

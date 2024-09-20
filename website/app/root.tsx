@@ -9,7 +9,7 @@ import {
   useLocation,
   useRouteError,
 } from "@remix-run/react";
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs } from "@vercel/remix";
 import stylesheet from "~/globals.css?url";
 import { canUseDOM } from "./ui/primitives/utils";
 import { Header } from "./ui/navbar";

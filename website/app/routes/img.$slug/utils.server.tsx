@@ -1,4 +1,4 @@
-import { json } from "@remix-run/node";
+import { json } from "@vercel/remix";
 import satori from "satori";
 import interFont from "./inter-roman-latin-var.woff?arraybuffer";
 import socialBackground from "./social-background.png?arraybuffer";

@@ -3,6 +3,7 @@ import { installGlobals } from "@remix-run/node";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import arraybuffer from "vite-plugin-arraybuffer";
+import { vercelPreset } from '@vercel/remix/vite';
 
 installGlobals();
 
@@ -14,5 +15,6 @@ export default defineConfig({
     remix(),
     tsconfigPaths(),
     arraybuffer(),
+    vercelPreset()
   ],
 });

@@ -1,4 +1,4 @@
-import { LoaderFunctionArgs, json } from "@remix-run/node";
+import { type LoaderFunctionArgs, json } from "@vercel/remix";
 import { Full } from "~/lib/yt";
 
 export async function loader({
