@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { siGithub } from 'simple-icons';
 import { Separator } from '~/components/ui/separator';
 

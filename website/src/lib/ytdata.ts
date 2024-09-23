@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // define YT api key
 const ytapikey = process.env.YT_API;
 
@@ -71,7 +73,11 @@ async function getvideodata(videoid: string): Promise<YouTubeVideoData> {
 
     return videoData;
   } catch (error) {
-    throw new Error('Failed to fetch video data: ' + error.message);
+    if (error instanceof Error) {
+        throw new Error('Failed to fetch channel data: ' + error.message);
+    } else {
+        throw new Error('Failed to fetch channel data: An unknown error occurred.');
+    }
   }
 }
 
@@ -101,7 +107,11 @@ async function getuserdata(channelId: string): Promise<YouTubePosterData> {
       }
 
       return channelData;
-  } catch (error) {
-      throw new Error('Failed to fetch channel data: ' + error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+          throw new Error('Failed to fetch channel data: ' + error.message);
+      } else {
+          throw new Error('Failed to fetch channel data: An unknown error occurred.');
+      }
   }
 }

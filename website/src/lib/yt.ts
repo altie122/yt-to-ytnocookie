@@ -30,6 +30,7 @@ export function IsYT(URL:string) {
   } else if (temp_input_URL.includes("youtube.com/embed/")) {
     return true;
   } else if (temp_input_URL.length == 11) {
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < temp_input_URL.length; i++) {
       const currentChar = temp_input_URL[i];
       if (!youtubeVideoIdCharacters.includes(currentChar!)) {
