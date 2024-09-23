@@ -32,7 +32,7 @@ export function IsYT(URL:string) {
   } else if (temp_input_URL.length == 11) {
     for (let i = 0; i < temp_input_URL.length; i++) {
       const currentChar = temp_input_URL[i];
-      if (!youtubeVideoIdCharacters.includes(currentChar)) {
+      if (!youtubeVideoIdCharacters.includes(currentChar!)) {
         return false;
       }
     }
