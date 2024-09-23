@@ -1,5 +1,6 @@
 import "~/styles/globals.css";
 import { ThemeProvider } from "~/components/theme-provider"
+import { Analytics } from '@vercel/analytics/react';
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
@@ -24,6 +25,7 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
+          <Analytics />
       </body>
     </html>
   );
