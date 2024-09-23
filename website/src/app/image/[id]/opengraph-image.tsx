@@ -13,9 +13,10 @@ export const contentType = 'image/png'
  
 // Image generation
 export default async function Image({ params }: { params: { id: string } }) {
+
   // Font
   const interSemiBold = fetch(
-    new URL('./Inter-SemiBold.ttf', import.meta.url)
+    new URL('./inter-roman-latin-var.woff', import.meta.url)
   ).then((res) => res.arrayBuffer())
  
   return new ImageResponse(

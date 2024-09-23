@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
-import { ThemeProvider } from "~/components/theme-provider"
-import { Analytics } from '@vercel/analytics/react';
+import { ThemeProvider } from "~/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
@@ -17,15 +17,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-          <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="min-h-screen p-5 text-center">{children}</div>
+        </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
