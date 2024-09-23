@@ -13,6 +13,7 @@ export const contentType = 'image/png'
  
 // Image generation
 export default async function Image({ params }: { params: { id: string } }) {
+  
 
   // Font
   const interSemiBold = fetch(

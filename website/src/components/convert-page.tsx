@@ -1,3 +1,4 @@
+"use client"
 import { useEffect } from "react";
 import { IsYT, GetID } from "~/lib/yt";
 import { Input } from "~/components/ui/input"
