@@ -27,7 +27,8 @@ export const links: LinksFunction = () => [
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const requestUrl = new URL(request.url);
-  if (requestUrl.host === "yt-to-ytnocookie.dovahkiin.xyz") {
+  const oldDomains = ["yt-to-ytnocookie.dovahkiin.xyz", "yt-to-ytnocookie.xyz", "www.yt-to-ytnocookie.xyz"]
+  if (oldDomains.includes(requestUrl.host)) {
     return redirect(
       `https://yt-to-ytnocookie.xyz/${requestUrl.pathname}?odd=true`,
       301
@@ -74,12 +75,12 @@ export default function App() {
           <div className='text-center bg-red-600'>
             <h1 className='text-4xl font-bold text-white'>Warning!</h1>
             <p>
-              We will be completely migrating to yt-to-ytnocookie.xyz on
-              9/12/2024.
+              We will be completely migrating to yt-to-ytnocookie.url122.xyz on
+              6/20/2025.
             </p>
             <p>
-              If you have yt-to-ytnocookie.dovahkiin.xyz bookmarked, please
-              update it to yt-to-ytnocookie.xyz.
+              If you have yt-to-ytnocookie.dovahkiin.xyz or yt-to-ytnocookie.xyz bookmarked, please
+              update it to yt-to-ytnocookie.url122.xyz.
             </p>
           </div>
         ) : (
@@ -119,12 +120,12 @@ export function ErrorBoundary() {
             <div className='text-center bg-red-600'>
               <h1 className='text-4xl font-bold text-white'>Warning!</h1>
               <p>
-                We will be completely migrating to yt-to-ytnocookie.xyz on
-                9/12/2024.
+                We will be completely migrating to yt-to-ytnocookie.url122.xyz on
+                6/20/2025.
               </p>
               <p>
-                If you have yt-to-ytnocookie.dovahkiin.xyz bookmarked, please
-                update it to yt-to-ytnocookie.xyz.
+                If you have yt-to-ytnocookie.dovahkiin.xyz or yt-to-ytnocookie.xyz bookmarked, please
+                update it to yt-to-ytnocookie.url122.xyz.
               </p>
             </div>
           ) : (
