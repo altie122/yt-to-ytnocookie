@@ -30,7 +30,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const oldDomains = ["yt-to-ytnocookie.dovahkiin.xyz", "yt-to-ytnocookie.xyz", "www.yt-to-ytnocookie.xyz"]
   if (oldDomains.includes(requestUrl.host)) {
     return redirect(
-      `https://yt-to-ytnocookie.xyz/${requestUrl.pathname}?odd=true`,
+      `https://yt-to-ytnocookie.url122.xyz/${requestUrl.pathname}?odd=true`,
       301
     );
   }
