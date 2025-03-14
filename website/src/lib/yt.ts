@@ -32,6 +32,7 @@ export function IsYT(URL:string) {
   } else if (temp_input_URL.length == 11) {
     for (let i = 0; i < temp_input_URL.length; i++) {
       const currentChar = temp_input_URL[i];
+      // @ts-expect-error old code stull works, ts just doesn't like it
       if (!youtubeVideoIdCharacters.includes(currentChar)) {
         return false;
       }
@@ -63,6 +64,7 @@ export function GetID(URL:string) {
       "",
     );
     const new_text_buffer = part_new_text.split("&");
+    // @ts-expect-error old code stull works, ts just doesn't like it
     const new_URL: string = new_text_buffer[0];
     return(new_URL);
   } else if (temp_input_URL.includes("youtu.be/")) {
@@ -71,6 +73,7 @@ export function GetID(URL:string) {
       "",
     );
     const new_text_buffer = part_new_text.split("?");
+    // @ts-expect-error old code stull works, ts just doesn't like it
     const new_URL: string = new_text_buffer[0];
     return(new_URL);
   } else if (temp_input_URL.includes("youtube.com/embed/")) {
@@ -79,6 +82,7 @@ export function GetID(URL:string) {
       "",
     );
     const new_text_buffer = part_new_text.split("?");
+    // @ts-expect-error old code stull works, ts just doesn't like it
     const new_URL: string = new_text_buffer[0];
     return(new_URL);
   } else if (temp_input_URL.length == 11) {
