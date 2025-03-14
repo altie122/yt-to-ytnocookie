@@ -7,6 +7,8 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
+    YT_API: z.string().min(1),
+    DISCORD_WEBHOOK: z.string().min(1),
     NODE_ENV: z.enum(["development", "test", "production"]),
   },
 
@@ -24,6 +26,8 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    YT_API: process.env.YT_API,
+    DISCORD_WEBHOOK: process.env.DISCORD_WEBHOOK,
     NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },

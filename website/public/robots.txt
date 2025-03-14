@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Allow: /video/***********
+
+Sitemap: https://yt-to-ytnocookie.xyz/sitemap-index.xml
