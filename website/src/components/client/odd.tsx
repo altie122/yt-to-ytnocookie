@@ -1,7 +1,8 @@
 "use client";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function OddBanner() {
+function Odd() {
   const searchParams = useSearchParams();
 
   const search = searchParams.get("odd");
@@ -23,4 +24,13 @@ export default function OddBanner() {
     );
   }
   return null;
+}
+
+export function OddBanner() {
+  return (
+    // You could have a loading skeleton as the `fallback` too
+    <Suspense>
+      <Odd />
+    </Suspense>
+  )
 }
