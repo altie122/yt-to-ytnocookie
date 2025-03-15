@@ -16,25 +16,29 @@ export async function generateMetadata({
     headersList.get("protocol") ??
     headersList.get("x-forwarded-proto") ??
     "https";
-  const siteUrl = protocol + "//" + headersList.get("host");
+  const protocolFormatted = protocol.endsWith("://")
+    ? protocol
+    : protocol + "://";
+  const siteUrl = protocolFormatted + headersList.get("host");
   const id = (await params).id;
   return {
     openGraph: {
-      title: 'YT To YT No Cookie',
+      title: "YT To YT No Cookie",
       description: `Simple little website that takes a YouTube URL (Share and Embed URL's and Video ID's are also supported) and turns it into a YouTube nocookie URL`,
       url: `${siteUrl}/video/${id}`,
-      siteName: 'YT To YT No Cookie',
-      locale: 'en_US',
-      type: 'website',
+      siteName: "YT To YT No Cookie",
+      locale: "en_US",
+      type: "website",
     },
     twitter: {
-      card: 'summary_large_image',
-      title: 'YT To YT No Cookie',
-      description: 'Simple little website that takes a YouTube URL (Share and Embed URL\'s and Video ID\'s are also supported) and turns it into a YouTube nocookie URL',
-      siteId: '866355501432438784',
-      site: '@altie122',
-      creator: '@altie122',
-      creatorId: '866355501432438784',
+      card: "summary_large_image",
+      title: "YT To YT No Cookie",
+      description:
+        "Simple little website that takes a YouTube URL (Share and Embed URL's and Video ID's are also supported) and turns it into a YouTube nocookie URL",
+      siteId: "866355501432438784",
+      site: "@altie122",
+      creator: "@altie122",
+      creatorId: "866355501432438784",
     },
   };
 }
@@ -50,7 +54,9 @@ export default async function Index({
     headersList.get("protocol") ??
     headersList.get("x-forwarded-proto") ??
     "https";
-  const protocolFormatted = protocol.endsWith("://") ? protocol : protocol + "://";
+  const protocolFormatted = protocol.endsWith("://")
+    ? protocol
+    : protocol + "://";
   const siteUrl = protocolFormatted + headersList.get("host");
   const userAgent = headersList.get("user-agent") ?? "Unknown";
   if (!blockedUserAgents.includes(userAgent)) {
