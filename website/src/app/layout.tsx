@@ -5,12 +5,16 @@ import { type Metadata } from "next";
 import { OddBanner } from "~/components/client/odd";
 import { Header } from "~/components/navbar";
 import { Footer } from "~/components/footer";
+import { env } from "~/env";
 
 export const metadata: Metadata = {
   title: "YT to YT No Cookie",
   description:
     "Simple little website that takes a YouTube URL (Share and Embed URL's and Video ID's are also supported) and turns it into a YouTube nocookie URL",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+  other: {
+    versionId: `${env.NEXT_PUBLIC_VERCEL_DEPLOYMENT_ID}-${env.NEXT_PUBLIC_VERCEL_TARGET_ENV}-${env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}`,
+  },
 };
 
 export default async function RootLayout({

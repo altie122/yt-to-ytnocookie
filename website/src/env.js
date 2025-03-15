@@ -18,6 +18,9 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
+    NEXT_PUBLIC_VERCEL_TARGET_ENV: z.string().min(1),
+    NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: z.string().min(1),
+    NEXT_PUBLIC_VERCEL_DEPLOYMENT_ID: z.string().min(1),
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
   },
 
@@ -29,6 +32,9 @@ export const env = createEnv({
     YT_API: process.env.YT_API,
     DISCORD_WEBHOOK: process.env.DISCORD_WEBHOOK,
     NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_VERCEL_TARGET_ENV: process.env.NEXT_PUBLIC_VERCEL_TARGET_ENV,
+    NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA,
+    NEXT_PUBLIC_VERCEL_DEPLOYMENT_ID: process.env.VERCEL_DEPLOYMENT_ID,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
