@@ -13,8 +13,8 @@ export async function generateMetadata({
 }) {
   const headersList = await headers();
   const protocol =
-    headersList.get("protocol") ||
-    headersList.get("x-forwarded-proto") ||
+    headersList.get("protocol") ??
+    headersList.get("x-forwarded-proto") ??
     "https";
   const siteUrl = protocol + "//" + headersList.get("host");
   const id = (await params).id;
@@ -47,15 +47,15 @@ export default async function Index({
   const id = (await params).id;
   const headersList = await headers();
   const protocol =
-    headersList.get("protocol") ||
-    headersList.get("x-forwarded-proto") ||
+    headersList.get("protocol") ??
+    headersList.get("x-forwarded-proto") ??
     "https";
   const siteUrl = protocol + "//" + headersList.get("host");
-  const userAgent = headersList.get("user-agent") || "Unknown";
+  const userAgent = headersList.get("user-agent") ?? "Unknown";
   if (!blockedUserAgents.includes(userAgent)) {
     const formattedMsg = `Converted Video:\n${siteUrl}/video/${id}\n\nUserAgent:\n${userAgent}\n\nVideo Converted:\nhttps://www.youtube.com/watch?v=${id}\n\nOutput:\nhttps://www.youtube-nocookie.com/embed/${id}`;
     if (env.NODE_ENV === "production") {
-      SendDiscordWebhook(formattedMsg);
+      await SendDiscordWebhook(formattedMsg);
     }
     console.log(formattedMsg);
   }
