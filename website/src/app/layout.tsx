@@ -6,6 +6,8 @@ import { OddBanner } from "~/components/client/odd";
 import { Header } from "~/components/navbar";
 import { Footer } from "~/components/footer";
 import { env } from "~/env";
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: "YT to YT No Cookie",
@@ -32,6 +34,8 @@ export default async function RootLayout({
         <OddBanner />
         <div className="min-h-screen p-5 text-center">{children}</div>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
