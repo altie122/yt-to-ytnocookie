@@ -8,6 +8,7 @@ import { Footer } from "~/components/footer";
 import { env } from "~/env";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { PostHogProvider } from "~/components/PostHogProvider";
 
 export const metadata: Metadata = {
   title: "YT to YT No Cookie",
@@ -30,12 +31,14 @@ export default async function RootLayout({
       className={`dark bg-background text-foreground min-h-screen max-w-screen hyphens-auto ${GeistSans.variable}`}
     >
       <body>
-        <Header />
-        <OddBanner />
-        <div className="min-h-screen p-5 text-center">{children}</div>
-        <Footer />
-        <Analytics />
-        <SpeedInsights />
+        <PostHogProvider>
+          <Header />
+          <OddBanner />
+          <div className="min-h-screen p-5 text-center">{children}</div>
+          <Footer />
+          <Analytics />
+          <SpeedInsights />
+        </PostHogProvider>
       </body>
     </html>
   );
