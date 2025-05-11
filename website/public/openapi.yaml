@@ -1,0 +1,170 @@
+openapi: 3.1.1
+info:
+  title: YT to YTNoCookie API
+  version: 1.0.0
+  description: |
+    API for checking and converting YouTube URLs, IDs, and share links to YouTube NoCookie embed URLs.
+servers:
+  - url: https://yt-to-ytnocookie.altie122.xyz
+
+paths:
+  /api/full:
+    get:
+      summary: Get full info about a YouTube URL or ID
+      parameters:
+        - in: query
+          name: url
+          schema:
+            type: string
+          required: true
+          description: YouTube video ID, URL, or share link
+      responses:
+        '200':
+          description: Full info about the YouTube resource
+          content:
+            application/json:
+              examples:
+                isYT:
+                  summary: Is a YouTube video
+                  value:
+                    IsYT: true
+                    URL: "https://www.youtube-nocookie.com/embed/ypQODyy9Fno"
+                    ID: "ypQODyy9Fno"
+                notYT:
+                  summary: Not a YouTube video
+                  value:
+                    IsYT: false
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      IsYT:
+                        type: boolean
+                        example: true
+                      URL:
+                        type: string
+                        format: uri
+                        example: "https://www.youtube-nocookie.com/embed/ypQODyy9Fno"
+                      ID:
+                        type: string
+                        example: "ypQODyy9Fno"
+                  - type: object
+                    properties:
+                      IsYT:
+                        type: boolean
+                        example: false
+
+  /api/isyt:
+    get:
+      summary: Check if the URL is a YouTube video
+      parameters:
+        - in: query
+          name: url
+          schema:
+            type: string
+          required: true
+          description: YouTube video ID, URL, or share link
+      responses:
+        '200':
+          description: Whether the URL is a YouTube video
+          content:
+            application/json:
+              examples:
+                isYT:
+                  summary: Is a YouTube video
+                  value:
+                    IsYT: true
+                notYT:
+                  summary: Not a YouTube video
+                  value:
+                    IsYT: false
+              schema:
+                type: object
+                properties:
+                  IsYT:
+                    type: boolean
+
+  /api/ytid:
+    get:
+      summary: Extract YouTube video ID from URL or share link
+      parameters:
+        - in: query
+          name: url
+          schema:
+            type: string
+          required: true
+          description: YouTube video ID, URL, or share link
+      responses:
+        '200':
+          description: YouTube video ID
+          content:
+            application/json:
+              examples:
+                valid:
+                  summary: Valid YouTube URL
+                  value:
+                    ID: "ypQODyy9Fno"
+              schema:
+                type: object
+                properties:
+                  ID:
+                    type: string
+                    example: "ypQODyy9Fno"
+        '400':
+          description: Invalid URL
+          content:
+            application/json:
+              examples:
+                invalid:
+                  summary: Invalid URL
+                  value:
+                    error: "Invalid URL"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid URL"
+
+  /api/yttoytnocookie:
+    get:
+      summary: Convert YouTube URL or ID to NoCookie embed URL
+      parameters:
+        - in: query
+          name: url
+          schema:
+            type: string
+          required: true
+          description: YouTube video ID, URL, or share link
+      responses:
+        '200':
+          description: NoCookie embed URL
+          content:
+            application/json:
+              examples:
+                valid:
+                  summary: Valid YouTube URL
+                  value:
+                    URL: "https://www.youtube-nocookie.com/embed/ypQODyy9Fno"
+              schema:
+                type: object
+                properties:
+                  URL:
+                    type: string
+                    format: uri
+                    example: "https://www.youtube-nocookie.com/embed/ypQODyy9Fno"
+        '400':
+          description: Invalid URL
+          content:
+            application/json:
+              examples:
+                invalid:
+                  summary: Invalid URL
+                  value:
+                    error: "Invalid URL"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid URL"
