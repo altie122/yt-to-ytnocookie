@@ -37,6 +37,8 @@ export default async function Image({
 
   const ytdata = await getytdata(id);
 
+  console.log(ytdata);
+
   return new ImageResponse(
     (
       // ImageResponse JSX element
