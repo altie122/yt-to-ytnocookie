@@ -10,7 +10,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
-}) {
+}): Promise<Metadata> {
   const headersList = await headers();
   const protocol =
     headersList.get("protocol") ??
@@ -21,6 +21,7 @@ export async function generateMetadata({
     : protocol + "://";
   const siteUrl = protocolFormatted + headersList.get("host");
   const id = (await params).id;
+  
   return {
     openGraph: {
       title: "YT To YT No Cookie",
@@ -29,6 +30,14 @@ export async function generateMetadata({
       siteName: "YT To YT No Cookie",
       locale: "en_US",
       type: "website",
+      images: [
+        {
+          url: `${siteUrl}/video/${id}/opengraph-image`,
+          width: 2400,
+          height: 1256,
+          alt: "YT To YT No Cookie",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -39,6 +48,7 @@ export async function generateMetadata({
       site: "@altie122",
       creator: "@altie122",
       creatorId: "866355501432438784",
+      images: [`${siteUrl}/video/${id}/opengraph-image`],
     },
   };
 }
