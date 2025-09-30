@@ -14,7 +14,7 @@ export function Footer(){
         </nav>
         <Separator />
         <aside className="items-center grid-flow-col">
-          <p>Copyright © 2024 | Altie122<br/>&quot;YouTube&quot; is a registered trademark of Google LLC.</p>
+          <p>Copyright © 2025 | Altie122<br/>&quot;YouTube&quot; is a registered trademark of Google LLC.</p>
         </aside>
         <Separator />
         <nav className="md:place-self-center md:justify-self-end">
