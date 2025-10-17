@@ -1,4 +1,4 @@
-website/assets website/public website/src website/.env.example website/.eslintrc.cjs website/.gitignore website/components.json website/next.config.js website/package.json website/pnpm-lock.yaml website/postcss.config.js website/prettier.config.js website/README.md website/tsconfig.json website/vercel.json{
+{
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "new-york",
   "rsc": true,

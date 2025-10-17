@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { siGithub } from 'simple-icons';
 import { Separator } from '~/components/ui/separator';
 
@@ -6,10 +7,10 @@ export function Footer(){
     <div>
       <footer className="bg-accent/50 text-secondary-foreground px-10 py-4">
         <nav>
-          <h6 className="">Site</h6> 
-          <ul>
+          <h6 className=" font-black text-md">Site</h6> 
+          <ul className="list-disc">
             <li><a className="link link-hover" href="/license">This site is OSS under the MIT license</a></li>
-            <li><a className="link link-hover" href="/api">API</a></li>
+            <li><Link href="/privacy">Privacy</Link></li>
           </ul>
         </nav>
         <Separator />
