@@ -1,6 +1,6 @@
 # yt-to-ytnocookie
 
-Simple little website that takes a YouTube URL (Share and Embed URLs and Video IDs are also supported) and turns it into a YouTube nocookie URL
+Simple little website that takes a YouTube URL (Share and Embed URLs and Video IDs are also supported) and turns it into a YouTube nocookie URL.
 
 ## Commands
 | Command | Description |
