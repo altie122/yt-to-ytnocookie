@@ -1,6 +1,6 @@
 # yt-to-ytnocookie
 
-Simple little website that takes a YouTube URL (Share and Embed URL's and Video ID's are also supported) and turns it into a YouTube nocookie URL
+Simple little website that takes a YouTube URL (Share and Embed URLs and Video IDs are also supported) and turns it into a YouTube nocookie URL
 
 ## Commands
 | Command | Description |
@@ -22,5 +22,5 @@ Simple little website that takes a YouTube URL (Share and Embed URL's and Video 
 - https://yt-to-ytnocookie.altie122.xyz
 
 ## License
-MIT © 2024–Present Altie122 Studios  
+MIT © 2024–present Altie122 Studios  
 See the [LICENSE](./LICENSE) file for full details and trademark disclaimers.
