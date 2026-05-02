@@ -17,7 +17,6 @@ Simple little website that takes a YouTube URL (Share and Embed URLs and Video I
 ## Officially hosted instances:
 ### OSS
 - https://yt-to-ytnocookie.altie122.xyz (main website)
-- https://yt-to-ytnocookie.altonrose.dev (hosted based off of this repository's main branch)
 
 ## License
 MIT © 2024–present Altie122 Studios, LLC
