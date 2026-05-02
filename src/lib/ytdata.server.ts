@@ -1,4 +1,4 @@
-import { env } from "~/env";
+import { env } from "@/env";
 
 // define YT api key
 const ytapikey = env.YT_API;
@@ -24,6 +24,9 @@ interface YouTubeData {
 
 // call data functions and return formatted results
 export async function getytdata(videoId: string): Promise<YouTubeData> {
+  if (!ytapikey || ytapikey === "dev") {
+    throw new Error("YouTube API key not found");
+  }
   const video = await getvideodata(videoId);
   const user = await getuserdata(video.uploaderId);
   const data: YouTubeData = {

@@ -1,11 +1,11 @@
-import "~/styles/globals.css";
+import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import { Header } from "~/components/navbar";
-import { Footer } from "~/components/footer";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Header } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "YT to YT No Cookie",
@@ -24,13 +24,18 @@ export default async function RootLayout({
       lang="en"
       className={`dark bg-background text-foreground min-h-screen max-w-screen hyphens-auto ${GeistSans.variable}`}
     >
-      <body>
-        <Header />
-        <div className="min-h-screen p-5 text-center">{children}</div>
-        <Footer />
-        <Analytics />
-        <SpeedInsights />
-      </body>
+      <TooltipProvider>
+        <body>
+          <div className="min-h-dvh h-full min-w-full">
+            <Header />
+            <div className="min-h-[calc(100dvh-(var(--spacing)*12))] w-full pt-12 p-2">
+              {children}
+            </div>
+          </div>
+          <Footer />
+          <Toaster />
+        </body>
+      </TooltipProvider>
     </html>
   );
 }

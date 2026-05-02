@@ -1,11 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap");
 @import 'tailwindcss';
-/*
-  ---break---
-*/
 @plugin 'tailwindcss-animate';
-/*
-  ---break---
-*/
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -14,14 +12,6 @@
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -31,9 +21,7 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
-/*
-  ---break---
-*/
+
 :root {
   --radius:
     0.625rem;
@@ -100,9 +88,7 @@
   --sidebar-ring:
     oklch(0.708 0 0);
 }
-/*
-  ---break---
-*/
+
 .dark {
   --background:
     oklch(0.145 0 0);
@@ -167,9 +153,7 @@
   --sidebar-ring:
     oklch(0.556 0 0);
 }
-/*
-  ---break---
-*/
+
 @theme inline {
   --radius-sm:
     calc(var(--radius) - 4px);
@@ -241,15 +225,135 @@
     var(--sidebar-border);
   --color-sidebar-ring:
     var(--sidebar-ring);
+    --font-sans: Roboto, sans-serif;
+    --font-serif: Fira Code, monospace;
+    --font-mono: Fira Code, monospace;
+    --font-sixtyfour: "Sixtyfour", sans-serif;
+    --font-sixtyfour--font-variation-settings: "BLED" 0, "SCAN" 0;
 }
-/*
-  ---break---
-*/
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    letter-spacing: var(--tracking-normal);
+  }
+}
+
+@layer utilities {
+  .prose,
+  .prose-container {
+    @apply container mx-auto max-w-[1024px] px-4 pt-8 pb-16 sm:px-6 lg:px-8;
+  }
+  .prose-no-y-padding,
+  .prose-container-no-y-padding {
+    @apply container mx-auto max-w-[1024px] px-4 sm:px-6 lg:px-8;
+  }
+  .prose h1,
+  .prose-no-y-padding h1,
+  .prose-h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+  .prose h2,
+  .prose-no-y-padding h2,
+  .prose-h2 {
+    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+  }
+  .prose .noborder {
+    @apply border-none;
+  }
+  .prose h3,
+  .prose-no-y-padding h3,
+  .prose-h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  .prose h4,
+  .prose-no-y-padding h4,
+  .prose-h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  .prose p,
+  .prose-no-y-padding p,
+  .prose-p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+  .prose blockquote,
+  .prose-no-y-padding blockquote,
+  .prose-blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+  .prose table,
+  .prose-no-y-padding table,
+  .prose-table {
+    @apply w-full;
+  }
+  .prose tr,
+  .prose-no-y-padding tr,
+  .prose-tr {
+    @apply even:bg-muted m-0 border-t p-0;
+  }
+  .prose th,
+  .prose-no-y-padding th,
+  .prose-th {
+    @apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right;
+  }
+  .prose ul,
+  .prose-no-y-padding ul,
+  .prose-ul {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+  }
+  .prose ol,
+  .prose-no-y-padding ol,
+  .prose-ol {
+    @apply my-6 ml-6 list-decimal [&>li]:mt-2;
+  }
+  .prose .contains-task-list,
+  .prose-no-container .contains-task-list,
+  .prose-ul.contains-task-list,
+  .prose-ol.contains-task-list {
+    @apply list-none pl-0 ml-0 mt-0;
+  }
+  .prose .contains-task-list li,
+  .prose-no-container .contains-task-list li,
+  .prose-ul.contains-task-list li,
+  .prose-ol.contains-task-list li {
+    @apply flex items-center gap-2 mt-2;
+  }
+  .prose code,
+  .prose-no-y-padding code,
+  .prose-code {
+    @apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  }
+  .prose a,
+  .prose-no-y-padding a,
+  .prose-a {
+    @apply text-primary underline decoration-dotted hover:decoration-solid;
+  }
+  .prose b,
+  .prose-b {
+    @apply font-bold;
+  }
+  .prose dl,
+  .prose-dl {
+    @apply my-6 ml-6 list-disc [&>dd]:ml-6 [&>dt]:mt-2;
+  }
+  .prose dt,
+  .prose-dt {
+    @apply font-bold;
+  }
+  .mention {
+    border-radius: 3px !important;
+    padding: 0 2px !important;
+    transition:
+      background-color 50ms ease-out,
+      color 50ms ease-out !important;
+    cursor: pointer !important;
+    border-radius: 3px !important;
+    padding: 0 2px !important;
+    font-weight: 500 !important;
+    unicode-bidi: plaintext !important;
+    background: hsl(235 calc(1 * 85.6%) 64.7% / 0.3) 100% !important;
   }
 }

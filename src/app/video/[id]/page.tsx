@@ -1,10 +1,11 @@
-import { SendDiscordWebhook } from "~/lib/webhook.server";
-import { blockedUserAgents } from "~/lib/consts";
+import { SendDiscordWebhook } from "@/lib/webhook.server";
+import { blockedUserAgents } from "@/lib/consts";
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
-import { env } from "~/env";
+import { env } from "@/env";
 import { Suspense } from "react";
 import { Metadata } from "next";
+import { CopyButton } from "@/components/client/copy";
 
 export async function generateMetadata({
   params,
@@ -21,7 +22,7 @@ export async function generateMetadata({
     : protocol + "://";
   const siteUrl = protocolFormatted + headersList.get("host");
   const id = (await params).id;
-  
+
   return {
     openGraph: {
       title: "YT To YT No Cookie",
@@ -81,11 +82,14 @@ export default async function Index({
   }
   const URL = "https://www.youtube-nocookie.com/embed/" + id;
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto h-full">
       <Suspense fallback={<div>Loading...</div>}>
-        <h2 className="text-lg no-underline hover:underline md:text-2xl">
-          {URL}
-        </h2>
+        <div className="flex w-full flex-row justify-between gap-2">
+          <h2 className="text-lg no-underline hover:underline md:text-2xl">
+            {URL}
+          </h2>
+          <CopyButton url={URL} />
+        </div>
         <h1 className="text-lg">Embed:</h1>
         <iframe
           className="mx-auto aspect-video w-full rounded-2xl"

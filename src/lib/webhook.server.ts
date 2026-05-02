@@ -1,9 +1,13 @@
 import axios from "axios";
-import { env } from "~/env";
+import { env } from "@/env";
 
 export async function SendDiscordWebhook(message: string) {
   try {
     const webhookURL = String(env.DISCORD_WEBHOOK);
+    if (!webhookURL || webhookURL === "dev") {
+      console.log("No Discord webhook URL found, skipping message");
+      return;
+    }
     const payload = {
       content: message,
     };

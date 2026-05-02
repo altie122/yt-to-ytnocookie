@@ -15,7 +15,7 @@ export default function Privacy() {
       </ul>
       <p>
         We do not share this data, however it is logged to a discord webhook,
-        although in a private server, discord may beable to see it if they want
+        although in a private server, discord may be able to see it if they want
         to.
       </p>
     </div>

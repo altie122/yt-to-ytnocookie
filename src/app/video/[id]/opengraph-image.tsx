@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { getytdata } from "~/lib/ytdata.server";
+import { getytdata } from "@/lib/ytdata.server";
 
 // Image metadata
 export const alt = "YT To YT No Cookie";

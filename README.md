@@ -5,8 +5,8 @@ Simple little website that takes a YouTube URL (Share and Embed URLs and Video I
 ## Commands
 | Command | Description |
 | --- | --- |
-| `pnpm dev` | Starts the development server |
-| `pnpm build` | Builds the application for production |
+| `bun dev` | Starts the development server |
+| `bun run build` | Builds the application for production |
 
 ## ENV vars:
 | Key | Value |
@@ -16,11 +16,9 @@ Simple little website that takes a YouTube URL (Share and Embed URLs and Video I
 
 ## Officially hosted instances:
 ### OSS
-- https://yt-to-ytnocookie.oss.altie122.xyz (hosted based off of this repository's main branch)
+- https://yt-to-ytnocookie.altie122.xyz (main website)
 - https://yt-to-ytnocookie.altonrose.dev (hosted based off of this repository's main branch)
-### Closed Source
-- https://yt-to-ytnocookie.altie122.xyz
 
 ## License
-MIT © 2024–present Altie122 Studios  
+MIT © 2024–present Altie122 Studios, LLC
 See the [LICENSE](./LICENSE) file for full details and trademark disclaimers.
